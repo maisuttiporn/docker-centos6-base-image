@@ -60,7 +60,7 @@ RUN yum install -y vixie-cron
 # -----------------------------------------------------------------------------
 # Ensure ruby dev
 # -----------------------------------------------------------------------------
-yum install -y ruby ruby-devel rubygems
+RUN yum install -y ruby ruby-devel rubygems
 
 # -----------------------------------------------------------------------------
 # Enable the wheel sudoers group
