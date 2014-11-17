@@ -58,6 +58,11 @@ RUN sed -i \
 RUN yum install -y vixie-cron
 
 # -----------------------------------------------------------------------------
+# Ensure ruby dev
+# -----------------------------------------------------------------------------
+yum install -y ruby ruby-devel rubygems
+
+# -----------------------------------------------------------------------------
 # Enable the wheel sudoers group
 # -----------------------------------------------------------------------------
 RUN sed -i 's/^# %wheel\tALL=(ALL)\tALL/%wheel\tALL=(ALL)\tALL/g' /etc/sudoers
@@ -91,7 +96,7 @@ RUN rm -rf /etc/ld.so.cache \
 	; rm -rf /var/cache/{ldconfig,yum}/*
 
 # -----------------------------------------------------------------------------
-# GPG key 
+# GPG key for RVM
 # -----------------------------------------------------------------------------
 RUN gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 
