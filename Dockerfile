@@ -56,6 +56,8 @@ RUN sed -i \
 # Cron Provider
 # -----------------------------------------------------------------------------
 RUN yum install -y vixie-cron
+RUN service crond start
+RUN chkconfig crond on
 
 # -----------------------------------------------------------------------------
 # Ensure ruby dev
