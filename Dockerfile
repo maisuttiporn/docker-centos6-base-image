@@ -4,26 +4,27 @@ MAINTAINER Paul Gilligan<Paul.Gilligan@moneysupermarket.com>
 # -----------------------------------------------------------------------------
 # Get Centos-6 Update
 # -----------------------------------------------------------------------------
-RUN yum update -y
-RUN yum install -y http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+RUN yum update -y && yum install -y http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 RUN yum reinstall -y glibc-common
 
 # -----------------------------------------------------------------------------
 # Base Install
 # -----------------------------------------------------------------------------
-RUN yum install -y --enablerepo=centosplus \
+RUN yum install -y --setopt=tsflags=nodocs --enablerepo=centosplus \
 	vim-minimal \
         ca-certificates \
         curl \
 	sudo \
         tar \
         which \
+        wget \
+        ntp \
+        unzip \
         git-core \
 	openssh \
 	openssh-server \
 	openssh-clients \
 	python-pip \
-	&& rm -rf /var/cache/yum/* \
 	&& yum clean all
 
 # -----------------------------------------------------------------------------
