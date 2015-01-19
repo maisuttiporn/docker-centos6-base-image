@@ -24,8 +24,7 @@ RUN yum install -y --setopt=tsflags=nodocs --enablerepo=centosplus \
 	openssh \
 	openssh-server \
 	openssh-clients \
-	python-pip \
-	&& yum clean all
+	python-pip 
 
 # -----------------------------------------------------------------------------
 # Install supervisord (required to run more than a single process in a container)
@@ -93,11 +92,6 @@ RUN chmod 600 /etc/services-config/ssh/sshd_config \
 # Purge
 # -----------------------------------------------------------------------------
 RUN yum clean all
-
-# -----------------------------------------------------------------------------
-# GPG key for RVM
-# -----------------------------------------------------------------------------
-RUN gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 
 # -----------------------------------------------------------------------------
 # Finish up
