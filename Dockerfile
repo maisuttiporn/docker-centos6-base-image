@@ -19,6 +19,7 @@ RUN yum install -y --setopt=tsflags=nodocs --enablerepo=centosplus \
         which \
         wget \
         ntp \
+        htop \
         unzip \
         git-core \
 	openssh \
